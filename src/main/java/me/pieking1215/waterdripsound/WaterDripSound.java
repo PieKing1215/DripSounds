@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class WaterDripSound implements ClientModInitializer {
 
-    public static final Identifier LAVA_DRIP_ID = new Identifier("waterdripsound:lavadrip");
+    public static final Identifier LAVA_DRIP_ID = Identifier.of("waterdripsound", "lavadrip");
     public static SoundEvent LAVA_DRIP_EVENT = SoundEvent.of(LAVA_DRIP_ID);
 
     @Override

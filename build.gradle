@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.1-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -9,8 +9,8 @@ repositories {
     maven { url "https://maven.terraformersmc.com" }
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -22,9 +22,9 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "com.terraformersmc:modmenu:6.1.0-rc.1"
+    modImplementation "com.terraformersmc:modmenu:11.0.1"
 
-    modApi("me.shedaniel.cloth:cloth-config-fabric:10.0.95") {
+    modApi("me.shedaniel.cloth:cloth-config-fabric:15.0.130") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 }
@@ -39,7 +39,7 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
-    it.options.release = 17 // 1.17 uses java 16
+    it.options.release = 21 // 1.21 uses java 21
 }
 
 jar {

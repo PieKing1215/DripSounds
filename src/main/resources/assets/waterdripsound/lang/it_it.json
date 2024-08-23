@@ -1,0 +1,10 @@
+{
+  "key.waterdripsound.category": "Generale",
+  "config.waterdripsound.general": "Configurazione Drip Sounds",
+  "config.waterdripsound.enable": "Abilita",
+  "config.waterdripsound.volume": "Volume",
+  "config.waterdripsound.dripChance": "Probabilità di Gocciolamento",
+  "config.waterdripsound.useDripstoneSounds": "Usa Suoni di Speleotema",
+  "tooltip.config.waterdripsound.useDripstoneSounds": "Se abilitato, usa i suoni di gocciolamento\ndell'acqua/lava di Speleotema introdotti nella versione 1.17.\nIn caso contrario, utilizza i suoni\ndelle versioni precedenti della mod.",
+  "config.waterdripsound.soundCategory": "Categoria del Suono"
+}

@@ -45,7 +45,7 @@ public class WaterDripSoundConfig {
             configFile = f;
 
             JsonReader jr = new JsonReader(new FileReader(f));
-            JsonElement jp = new JsonParser().parse(jr);
+            JsonElement jp = JsonParser.parseReader(jr);
             if (jp.isJsonObject()) {
                 JsonObject obj = jp.getAsJsonObject();
                 if(obj.has("enabled")) GENERAL.enabled.set(obj.get("enabled").getAsBoolean());
@@ -67,7 +67,7 @@ public class WaterDripSoundConfig {
     public static Screen registerClothConfig(Screen parent) {
 
         ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle(Text.translatable("config.waterdripsound.general"));
-        builder.setDefaultBackgroundTexture(new Identifier("minecraft:textures/block/mossy_stone_bricks.png"));
+        builder.setDefaultBackgroundTexture(Identifier.ofVanilla("textures/block/mossy_stone_bricks.png"));
         builder.transparentBackground();
 
         ConfigEntryBuilder eb = builder.entryBuilder();
