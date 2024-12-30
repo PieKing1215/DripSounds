@@ -1,32 +1,24 @@
-logs/
-gradle/
-
-# gradle
-
-.gradle/
 build/
-out/
-classes/
-
-# eclipse
-
-*.launch
-
-# idea
-
-.idea/
-*.iml
 *.ipr
+run/
 *.iws
-
-# vscode
-
-.settings/
-.vscode/
+out/
+*.iml
+.gradle/
+output/
 bin/
+libs/
+*.log
+
 .classpath
 .project
+.idea/
+classes/
+.metadata
+.vscode
+.settings
+*.launch
 
-# fabric
-
-run/
+publish_all.sh
+publish_curseforge_version.sh
+publish_modrinth_version.sh

@@ -1,0 +1,7 @@
+accessWidener   v1  named
+accessible   class   net/minecraft/client/particle/DripParticle$FallAndLandParticle
+accessible   field   net/minecraft/client/particle/DripParticle type Lnet/minecraft/world/level/material/Fluid;
+accessible field net/minecraft/client/particle/Particle x D
+accessible field net/minecraft/client/particle/Particle y D
+accessible field net/minecraft/client/particle/Particle z D
+accessible field net/minecraft/client/particle/Particle level Lnet/minecraft/client/multiplayer/ClientLevel;
