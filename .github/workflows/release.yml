@@ -47,6 +47,15 @@ jobs:
       - name: chiseledBuild
         run: ./gradlew chiseledBuild
 
+      - name: Find jars
+        id: find_jars
+        run: |
+          {
+            echo 'jar_files<<EOF'
+            find build/libs -name "*.jar"
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
       - name: Draft Release
         uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2.2.1
         with:
@@ -54,7 +63,7 @@ jobs:
           name: ${{ inputs.title }}
           tag_name: ${{ inputs.tag }}
           body: ${{ inputs.changelog }}
-          files: /build/libs/*.jar
+          files: ${{ steps.find_jars.outputs.jar_files }}
           prerelease: ${{ inputs.type == 'ALPHA' }}
 
       # - name: chiseledPublishMods
