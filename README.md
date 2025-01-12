@@ -22,7 +22,7 @@
 
 This mod is client-side, so it does not need to be installed on the server for it to work.
 
-Requires [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config).
+Requires [Cloth Config](https://modrinth.com/mod/cloth-config).
 
 ### [Releases](https://github.com/PieKing1215/DripSounds/releases)
 
@@ -30,7 +30,7 @@ Requires [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) a
 
 Feel free to use in packs if you wish.
 
-The only official downloads are from the DripSounds-Fabric GitHub, Modrinth, and CurseForge pages.<br>
+The only official downloads are from the DripSounds GitHub, Modrinth, and CurseForge pages.<br>
 Be careful downloading them from elsewhere, as unauthorized reposts are not monitored and could contain malware.<br>
 (If you are interested in the mod being added to another platform, please open an issue!)
 
