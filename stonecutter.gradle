@@ -188,7 +188,6 @@ subprojects {
                     }
 
                     requires "cloth-config"
-                    optional "invmovecompats"
 
                     if (parent.name == "fabric") {
                         optional "modmenu"
