@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pieking1215.dripsounds.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "client.MixinClientLevel",
+    "client.MixinFallAndLandParticle"
+  ],
+  "plugin": "me.pieking1215.dripsounds.mixin.DripSoundsMixinPlugin",
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

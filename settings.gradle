@@ -1,10 +1,57 @@
 pluginManagement {
     repositories {
-        jcenter()
-        maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
-        }
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://files.minecraftforge.net/maven/" }
+        maven { url "https://maven.kikugie.dev/snapshots" }
         gradlePluginPortal()
     }
 }
+
+plugins {
+    id "dev.kikugie.stonecutter" version "0.5"
+}
+
+def platformVersionMap = [:]
+
+static def getEnabledPlatforms(file) {
+    Properties props = new Properties()
+    file.withInputStream { stream ->
+        props.load(stream)
+    }
+    def platforms = props['enabled_platforms']?.split(',')?.collect { it.trim() }
+    return platforms ?: []
+}
+
+fileTree(dir: file('versions'), include: '**/gradle.properties').each { propFile ->
+    def version = propFile.parentFile.name
+    def platforms = getEnabledPlatforms(propFile)
+
+    platforms.each { platform ->
+        if (platformVersionMap.containsKey(platform)) {
+            platformVersionMap[platform] << version
+        } else {
+            platformVersionMap[platform] = [version]
+        }
+    }
+}
+
+stonecutter {
+    create(rootProject) {
+        versions "1.17.1", "1.18.2", "1.19.4", "1.20.4", "1.20.6", "1.21.4"
+        vcsVersion = "1.21.4"
+        branch "common"
+
+        platformVersionMap.each { platform, versions ->
+            branch(platform, b -> {
+                b.versions(versions as String[])
+            })
+        }
+    }
+}
+
+rootProject.name = 'DripSounds'
+
+include 'common'
+include 'fabric'
+include 'neoforge'
