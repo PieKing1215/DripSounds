@@ -193,6 +193,8 @@ subprojects {
 
                 if (providers.environmentVariable("RELEASE_GITHUB").getOrElse("false").toBoolean()) {
                     github {
+                        accessToken = providers.environmentVariable("GITHUB_TOKEN").get()
+
                         parent rootProject.tasks.named("publishGithub")
                     }
                 }
