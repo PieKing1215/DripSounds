@@ -87,8 +87,8 @@ jobs:
           RELEASE_TYPE: ${{ inputs.type }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODRINTH_API_KEY: ${{ secrets.MODRINTH_API_KEY }}
-          RELEASE_GITHUB: ${{ inputs.release_github }
-          RELEASE_MODRINTH: ${{ inputs.release_modrinth }
+          RELEASE_GITHUB: ${{ inputs.release_github }}
+          RELEASE_MODRINTH: ${{ inputs.release_modrinth }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: ./gradlew chiseledPublishMods --no-daemon
 
