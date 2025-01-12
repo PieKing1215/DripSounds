@@ -1,5 +1,5 @@
 <h1>Drip Sounds<br>
-  <a href="https://modrinth.com/mod/dripsounds"><img src="http://cf.way2muchnoise.eu/versions/%20For%20MC%20_448311_all(555-0C8E8E-fff-010101).svg" alt="Supported Versions"></a>
+<!--   <a href="https://modrinth.com/mod/dripsounds"><img src="http://cf.way2muchnoise.eu/versions/%20For%20MC%20_448311_all(555-0C8E8E-fff-010101).svg" alt="Supported Versions"></a> -->
   <a href="https://github.com/PieKing1215/DripSounds/blob/master/COPYING"><img src="https://img.shields.io/github/license/PieKing1215/DripSounds?style=flat&color=0C8E8E" alt="License"></a>
   <a href="https://modrinth.com/mod/dripsounds"><img src="https://img.shields.io/modrinth/dt/T8MMXTpr?label=Modrinth downloads&logo=modrinth" alt="Modrinth Download Count"></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/dripsounds"><img src="http://cf.way2muchnoise.eu/full_448311_downloads(E04E14-555-fff-010101-1C1C1C).svg" alt="Download Count"></a>
