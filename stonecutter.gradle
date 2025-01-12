@@ -27,18 +27,24 @@ publishMods {
     changelog = providers.environmentVariable("RELEASE_CHANGELOG").orElse("TEST")
     type = providers.environmentVariable("RELEASE_TYPE").orElse("ALPHA").map(ReleaseType::of)
 
-    github {
-        accessToken = providers.environmentVariable("GITHUB_TOKEN")
-        repository = repo.replace("https://github.com/", "")
-        commitish = "main"
-        tagName = "v$rootProject.version"
-        displayName = "v$rootProject.version"
+    println("DRY_RUN = ${providers.environmentVariable("DRY_RUN").getOrElse("true").toBoolean()}")
+    println("RELEASE_GITHUB = ${providers.environmentVariable("RELEASE_GITHUB").getOrElse("false").toBoolean()}")
+    println("RELEASE_MODRINTH = ${providers.environmentVariable("RELEASE_MODRINTH").getOrElse("false").toBoolean()}")
 
-        // files added by subprojects
-        allowEmptyFiles = true
+    if (providers.environmentVariable("RELEASE_GITHUB").getOrElse("false").toBoolean()) {
+        github {
+            accessToken = providers.environmentVariable("GITHUB_TOKEN")
+            repository = repo.replace("https://github.com/", "")
+            commitish = "main"
+            tagName = "v$rootProject.version"
+            displayName = "v$rootProject.version"
+
+            // files added by subprojects
+            allowEmptyFiles = true
+        }
     }
 
-    dryRun = true
+    dryRun = providers.environmentVariable("DRY_RUN").getOrElse("true").toBoolean()
 }
 
 subprojects {
@@ -171,26 +177,30 @@ subprojects {
                 changelog = rootProject.publishMods.changelog
                 type = rootProject.publishMods.type
 
-                github {
-                    parent rootProject.tasks.named("publishGithub")
+                if (providers.environmentVariable("RELEASE_GITHUB").getOrElse("false").toBoolean()) {
+                    github {
+                        parent rootProject.tasks.named("publishGithub")
+                    }
                 }
 
-                modrinth {
-                    accessToken = providers.environmentVariable("MODRINTH_API_KEY")
-                    projectId = modrinth_project
+                if (providers.environmentVariable("RELEASE_MODRINTH").getOrElse("false").toBoolean()) {
+                    modrinth {
+                        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+                        projectId = modrinth_project
 
-                    displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
-                    version = "$rootProject.version+$project.name-$parent.name"
+                        displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
+                        version = "$rootProject.version+$project.name-$parent.name"
 
-                    minecraftVersionRange {
-                        start = get("minecraft_min")
-                        end = project.name
-                    }
+                        minecraftVersionRange {
+                            start = get("minecraft_min")
+                            end = project.name
+                        }
 
-                    requires "cloth-config"
+                        requires "cloth-config"
 
-                    if (parent.name == "fabric") {
-                        optional "modmenu"
+                        if (parent.name == "fabric") {
+                            optional "modmenu"
+                        }
                     }
                 }
 

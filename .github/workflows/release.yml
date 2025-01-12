@@ -23,6 +23,21 @@ on:
           - ALPHA
           - BETA
           - STABLE
+      dry_run:
+        type: boolean
+        description: 'Dry Run'
+        required: true
+        default: true
+      release_github:
+        type: boolean
+        description: 'Github Release'
+        required: true
+        default: false
+      release_modrinth:
+        type: boolean
+        description: 'Modrinth Release'
+        required: true
+        default: false
 
 jobs:
   build:
@@ -72,6 +87,9 @@ jobs:
           RELEASE_TYPE: ${{ inputs.type }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODRINTH_API_KEY: ${{ secrets.MODRINTH_API_KEY }}
+          RELEASE_GITHUB: ${{ inputs.release_github }
+          RELEASE_MODRINTH: ${{ inputs.release_modrinth }
+          DRY_RUN: ${{ inputs.dry_run }}
         run: ./gradlew chiseledPublishMods --no-daemon
 
       - name: Upload a Build Artifact
