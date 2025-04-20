@@ -19,6 +19,9 @@
 - Makes all water/lava drip particles use the Dripstone drip sounds
 - Configurable volume & sound category
 - Adds the ability to configure the rate of drip particle spawning
+- Adds options to change the max range & number of blocks that get random animation ticks
+  - This affects many blocks' particle effects (drips, smoke, falling leaves, fireflies, bubble columns, etc)
+  - Also affects some blocks' ambient sounds (fire, lava, portals, etc)
 
 This mod is client-side, so it does not need to be installed on the server for it to work.
 
