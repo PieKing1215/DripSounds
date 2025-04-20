@@ -1,10 +1,15 @@
 {
   "key.waterdripsound.category": "General",
   "config.waterdripsound.general": "Drip Sounds Config",
-  "config.waterdripsound.enable": "Enable",
-  "config.waterdripsound.volume": "Volume",
+  "config.waterdripsound.enable": "Enable Drip Sound",
+  "config.waterdripsound.volume": "Drip Volume",
   "config.waterdripsound.dripChance": "Drip Chance",
+  "tooltip.config.waterdripsound.dripChance": "Chance for a drip particle to spawn when a block is randomly animated\nOne in 10 = Vanilla, higher means less common",
+  "config.waterdripsound.blockAnimateRangeMultiplier": "Block Particles Range Multiplier",
+  "tooltip.config.waterdripsound.blockAnimateRangeMultiplier": "Multiplies the max range for block particle effects\n(drips, smoke, falling leaves, fireflies, bubble columns, etc)\nAlso affects some blocks' ambient sounds (fire, lava, portals, etc)\n1.0 = Vanilla, higher means particles can spawn further away",
+  "config.waterdripsound.blockAnimateCountMultiplier": "Block Particles Count Multiplier",
+  "tooltip.config.waterdripsound.blockAnimateCountMultiplier": "Multiplies the number of blocks that update particle effects each tick\nThis has a noticeable performance impact the higher you set it!\n1.0 = Vanilla, higher means more blocks spawn particles\nTo keep the same density as vanilla, this should be the square of the range\n(ie. 2.0 range -> 4.0 count, 3.0 range -> 9.0 count, etc)",
   "config.waterdripsound.useDripstoneSounds": "Use Dripstone Sounds",
   "tooltip.config.waterdripsound.useDripstoneSounds": "If enabled, uses the Dripstone water/lava\n drip sounds added in 1.17.\nIf not, uses sounds from older\n versions of the mod.",
-  "config.waterdripsound.soundCategory": "Sound Category"
+  "config.waterdripsound.soundCategory": "Drip Sound Category"
 }

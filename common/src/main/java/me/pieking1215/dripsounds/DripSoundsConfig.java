@@ -31,6 +31,8 @@ public class DripSoundsConfig {
         public final AtomicBoolean enabled = new AtomicBoolean(true);
         public final AtomicDouble volume = new AtomicDouble(0.3);
         public final AtomicInteger dripChance = new AtomicInteger(10);
+        public final AtomicDouble blockAnimateRangeMultiplier = new AtomicDouble(1.0);
+        public final AtomicDouble blockAnimateCountMultiplier = new AtomicDouble(1.0);
         public final AtomicBoolean useDripstoneSounds = new AtomicBoolean(true);
         public final AtomicReference<SoundSource> soundCategory = new AtomicReference<>(SoundSource.AMBIENT);
     }
@@ -44,9 +46,11 @@ public class DripSoundsConfig {
         ConfigCategory general = builder.getOrCreateCategory(DripSounds.instance().translatableComponent("key.waterdripsound.category"));
         general.addEntry(eb.startBooleanToggle(DripSounds.instance().translatableComponent("config.waterdripsound.enable"), GENERAL.enabled.get()).setDefaultValue(true).setSaveConsumer(GENERAL.enabled::set).build());
         general.addEntry(eb.startIntSlider(DripSounds.instance().translatableComponent("config.waterdripsound.volume"), (int)(GENERAL.volume.get() * 100), 0, 100).setDefaultValue(30).setTextGetter(integer -> DripSounds.instance().literalComponent("Volume: " + integer + "%")).setSaveConsumer(integer -> GENERAL.volume.set(integer / 100.0)).build());
-        general.addEntry(eb.startIntSlider(DripSounds.instance().translatableComponent("config.waterdripsound.dripChance"), GENERAL.dripChance.get(), 1, 100).setDefaultValue(10).setTextGetter(integer -> DripSounds.instance().literalComponent("One in " + integer)).setSaveConsumer(GENERAL.dripChance::set).build());
-//        general.addEntry(eb.startBooleanToggle(DripSounds.instance().translatableComponent("config.waterdripsound.useDripstoneSounds"), GENERAL.useDripstoneSounds.get()).setDefaultValue(true).setTooltip(DripSounds.instance().translatableComponent("tooltip.config.waterdripsound.useDripstoneSounds")).setSaveConsumer(GENERAL.useDripstoneSounds::set).build());
         general.addEntry(eb.startEnumSelector(DripSounds.instance().translatableComponent("config.waterdripsound.soundCategory"), SoundSource.class, GENERAL.soundCategory.get()).setDefaultValue(SoundSource.AMBIENT).setEnumNameProvider(anEnum -> DripSounds.instance().translatableComponent("soundCategory." + ((SoundSource)anEnum).getName())).setSaveConsumer(GENERAL.soundCategory::set).build());
+        general.addEntry(eb.startIntSlider(DripSounds.instance().translatableComponent("config.waterdripsound.dripChance"), GENERAL.dripChance.get(), 1, 100).setDefaultValue(10).setTextGetter(integer -> DripSounds.instance().literalComponent("One in " + integer)).setTooltip(DripSounds.instance().translatableComponent("tooltip.config.waterdripsound.dripChance")).setSaveConsumer(GENERAL.dripChance::set).build());
+        general.addEntry(eb.startIntSlider(DripSounds.instance().translatableComponent("config.waterdripsound.blockAnimateRangeMultiplier"), (int)(GENERAL.blockAnimateRangeMultiplier.get() / 0.25), 1, (int)(4.0 / 0.25)).setDefaultValue((int)(1.0 / 0.25)).setTextGetter(integer -> DripSounds.instance().literalComponent(integer * 0.25f + "x (" + (int)(integer * 0.25f * 32) + " Blocks)")).setTooltip(DripSounds.instance().translatableComponent("tooltip.config.waterdripsound.blockAnimateRangeMultiplier")).setSaveConsumer(integer -> GENERAL.blockAnimateRangeMultiplier.set(integer * 0.25)).build());
+        general.addEntry(eb.startIntSlider(DripSounds.instance().translatableComponent("config.waterdripsound.blockAnimateCountMultiplier"), (int)(GENERAL.blockAnimateCountMultiplier.get() / 0.25), 0, (int)(4.0 * 4.0 / 0.25)).setDefaultValue((int)(1.0 / 0.25)).setTextGetter(integer -> DripSounds.instance().literalComponent(integer * 0.25f + "x")).setTooltip(DripSounds.instance().translatableComponent("tooltip.config.waterdripsound.blockAnimateCountMultiplier")).setSaveConsumer(integer -> GENERAL.blockAnimateCountMultiplier.set(integer * 0.25)).build());
+//        general.addEntry(eb.startBooleanToggle(DripSounds.instance().translatableComponent("config.waterdripsound.useDripstoneSounds"), GENERAL.useDripstoneSounds.get()).setDefaultValue(true).setTooltip(DripSounds.instance().translatableComponent("tooltip.config.waterdripsound.useDripstoneSounds")).setSaveConsumer(GENERAL.useDripstoneSounds::set).build());
 
         // save
 
@@ -115,6 +119,8 @@ public class DripSoundsConfig {
         jw.name("dripChance").value(GENERAL.dripChance.get());
         jw.name("useDripstoneSounds").value(GENERAL.useDripstoneSounds.get());
         jw.name("soundCategory").value(GENERAL.soundCategory.get().getName());
+        jw.name("blockAnimateRangeMultiplier").value(GENERAL.blockAnimateRangeMultiplier.get());
+        jw.name("blockAnimateCountMultiplier").value(GENERAL.blockAnimateCountMultiplier.get());
 
         jw.endObject();
         jw.close();
@@ -135,6 +141,8 @@ public class DripSoundsConfig {
                         .filter(c -> c.getName().equals(json.get("soundCategory").getAsString()))
                         .findFirst()
                         .orElse(SoundSource.AMBIENT));
+            if(json.has("blockAnimateRangeMultiplier")) GENERAL.blockAnimateRangeMultiplier.set(json.get("blockAnimateRangeMultiplier").getAsDouble());
+            if(json.has("blockAnimateCountMultiplier")) GENERAL.blockAnimateCountMultiplier.set(json.get("blockAnimateCountMultiplier").getAsDouble());
         }
     }
 }

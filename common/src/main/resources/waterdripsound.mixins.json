@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "client": [
     "client.MixinClientLevel",
+    "client.MixinLevelRenderer",
     "client.MixinFallAndLandParticle"
   ],
   "plugin": "me.pieking1215.dripsounds.mixin.DripSoundsMixinPlugin",
