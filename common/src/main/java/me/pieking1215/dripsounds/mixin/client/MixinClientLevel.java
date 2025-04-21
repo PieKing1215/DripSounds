@@ -13,17 +13,29 @@ public class MixinClientLevel {
         return DripSoundsConfig.GENERAL.dripChance.get();
     }
 
-    @ModifyConstant(method = "animateTick", constant = @Constant(intValue = 667))
+    @ModifyConstant(
+            method = "animateTick",
+            constant = @Constant(intValue = 667),
+            require = 0
+    )
     private int modifyAnimateCount(int original){
         return (int)(original * DripSoundsConfig.GENERAL.blockAnimateCountMultiplier.get());
     }
 
-    @ModifyConstant(method = "animateTick", constant = @Constant(intValue = 16))
+    @ModifyConstant(
+            method = "animateTick",
+            constant = @Constant(intValue = 16),
+            require = 0
+    )
     private int modifyAnimateRange1(int original){
         return (int)(original * DripSoundsConfig.GENERAL.blockAnimateRangeMultiplier.get());
     }
 
-    @ModifyConstant(method = "animateTick", constant = @Constant(intValue = 32))
+    @ModifyConstant(
+            method = "animateTick",
+            constant = @Constant(intValue = 32),
+            require = 0
+    )
     private int modifyAnimateRange2(int original){
         return (int)(original * DripSoundsConfig.GENERAL.blockAnimateRangeMultiplier.get());
     }

@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class MixinLevelRenderer {
     @ModifyConstant(
         method = "Lnet/minecraft/client/renderer/LevelRenderer;addParticleInternal(Lnet/minecraft/core/particles/ParticleOptions;ZZDDDDDD)Lnet/minecraft/client/particle/Particle;",
-        constant = @Constant(doubleValue = 1024.0)
+        constant = @Constant(doubleValue = 1024.0),
+        require = 0
     )
     private double modifyMaxParticleAddRange(double original){
         return Math.max(original, original * DripSoundsConfig.GENERAL.blockAnimateRangeMultiplier.get());
