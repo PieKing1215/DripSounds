@@ -10,7 +10,6 @@ architectury {
 loom {
     forge {
         convertAccessWideners = true
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
         mixinConfig "${id}.mixins.json"
         mixinConfig "${id}-forge.mixins.json"
@@ -83,5 +82,8 @@ shadowJar {
 }
 
 remapJar {
+    injectAccessWidener = true
     input.set shadowJar.archiveFile
+    archiveClassifier = null
+    dependsOn(tasks.shadowJar)
 }

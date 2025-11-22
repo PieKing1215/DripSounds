@@ -2,7 +2,7 @@ import me.modmuss50.mpp.ReleaseType
 
 plugins {
     id "dev.kikugie.stonecutter"
-    id 'dev.architectury.loom' version '1.10-SNAPSHOT' apply false
+    id 'dev.architectury.loom' version '1.11-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT' apply false
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
     id 'me.modmuss50.mod-publish-plugin' version '0.7.4'
@@ -74,8 +74,16 @@ subprojects {
 
         archivesBaseName = "$rootProject.display_name-$project.name"
 
+        ext.hasProp = prop -> {
+            return rootProject.project(stonecutter.current.project).hasProperty(prop)
+        }
+
         ext.get = prop -> {
             return rootProject.project(stonecutter.current.project).property(prop)
+        }
+
+        ext.getOr = (prop, defaultValue) -> {
+            return rootProject.project(stonecutter.current.project).findProperty(prop) ?: defaultValue
         }
 
         var modid = rootProject.id
@@ -98,7 +106,7 @@ subprojects {
         }
 
         dependencies {
-            minecraft "net.minecraft:minecraft:$stonecutter.current.project"
+            minecraft "net.minecraft:minecraft:${getOr("minecraft_version", stonecutter.current.project)}"
             mappings loom.officialMojangMappings()
         }
 
@@ -134,7 +142,7 @@ subprojects {
             }
         }
 
-        if (stonecutter.current.isActive && parent.name != "common") {
+        if (stonecutter.current.active && parent.name != "common") {
             rootProject.tasks.register("Run Active ${parent.name.capitalize()}") {
                 group = "project"
                 dependsOn(tasks.named("runClient"))
@@ -206,6 +214,30 @@ subprojects {
 
                         displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
                         version = "$rootProject.version+$project.name-$parent.name"
+
+                        minecraftVersionRange {
+                            start = get("minecraft_min")
+                            end = project.name
+                        }
+
+                        requires "cloth-config"
+
+                        if (parent.name == "fabric") {
+                            optional "modmenu"
+                        }
+                    }
+                }
+
+                if (providers.environmentVariable("RELEASE_CURSEFORGE").getOrElse("false").toBoolean()) {
+                    curseforge {
+                        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY").get()
+                        projectId = modrinth_project
+
+                        displayName = "$rootProject.version for ${parent.name.replaceAll('f', 'F').replaceAll('n', 'N')} ${get("display_mc_version")}"
+                        version = "$rootProject.version+$project.name-$parent.name"
+
+                        clientRequired = true
+                        serverRequired = false
 
                         minecraftVersionRange {
                             start = get("minecraft_min")

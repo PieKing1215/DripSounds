@@ -68,7 +68,9 @@ shadowJar {
 }
 
 remapJar {
+    injectAccessWidener = true
+    atAccessWideners.add("${id}.accesswidener")
     input.set shadowJar.archiveFile
-
-    atAccessWideners.add("${get("id")}.accesswidener")
+    archiveClassifier = null
+    dependsOn(tasks.shadowJar)
 }
