@@ -1,6 +1,7 @@
 package me.pieking1215.dripsounds.neoforge;
 
 import me.pieking1215.dripsounds.DripSounds;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.InterModProcessEvent;
@@ -14,7 +15,7 @@ public class DripSoundsNeoForge {
     }
 
     private void imProcess(InterModProcessEvent evt) {
-        if (FMLEnvironment.dist.isClient()) {
+        if (/*? if >= 1.21.9 {*/FMLEnvironment.getDist()/*?} else {*//*FMLEnvironment.dist*//*?}*/ == Dist.CLIENT) {
             DripSoundsNeoForgeClient.finishInit();
         }
     }
