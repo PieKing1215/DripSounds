@@ -12,7 +12,7 @@
 <tr>
   <td><a href="https://github.com/PieKing1215/DripSounds">GitHub</a></td>
   <td><a href="https://modrinth.com/mod/dripsounds">Modrinth</a></td>
-  <td><a href="https://www.curseforge.com/minecraft/mc-mods/dripsounds">CurseForge</a> (Mirror)</td>
+  <td><a href="https://www.curseforge.com/minecraft/mc-mods/dripsounds">CurseForge</a></td>
 </tr>
 </table>
 
