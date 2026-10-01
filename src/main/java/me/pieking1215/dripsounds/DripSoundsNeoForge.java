@@ -1,7 +1,7 @@
 package me.pieking1215.dripsounds;
 
 //? if neoforge {
-import net.neoforged.api.distmarker.Dist;
+/*import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -21,7 +21,7 @@ public class DripSoundsNeoForge {
     }
 
     private void imProcess(InterModProcessEvent evt) {
-        if (/*? if >= 1.21.9 {*/FMLEnvironment.getDist()/*?} else {*//*FMLEnvironment.dist*//*?}*/ == Dist.CLIENT) {
+        if (/^? if >= 1.21.9 {^//^FMLEnvironment.getDist()^//^?} else {^/FMLEnvironment.dist/^?}^/ == Dist.CLIENT) {
             DripSounds.finishInit();
         }
     }
@@ -33,4 +33,4 @@ public class DripSoundsNeoForge {
         //ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> DripSoundsConfig.setupCloth(screen)));
     }
 }
-//?}
+*///?}

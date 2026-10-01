@@ -11,11 +11,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? if fabric
-//import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.FabricLoader;
 //? if neoforge {
-import net.neoforged.fml.ModList;
+/*import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLPaths;
-//?} elif forge {
+*///?} elif forge {
 /*import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLPaths;
 *///?}
@@ -36,16 +36,16 @@ public class DripSounds {
 
     public static boolean hasMod(String modid) {
         //? if fabric
-        //return FabricLoader.getInstance().isModLoaded(modid);
+        return FabricLoader.getInstance().isModLoaded(modid);
         //? if neoforge || forge
-        return ModList.get().isLoaded(modid);
+        //return ModList.get().isLoaded(modid);
     }
 
     public static File configDir() {
         //? if fabric
-        //return FabricLoader.getInstance().getConfigDir().toFile();
+        return FabricLoader.getInstance().getConfigDir().toFile();
         //? if neoforge || forge
-        return FMLPaths.CONFIGDIR.get().toFile();
+        //return FMLPaths.CONFIGDIR.get().toFile();
     }
 
     // utility
