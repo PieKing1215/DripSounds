@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
+  "authors": [
+    "${authors}"
+  ],
+  "contact": {
+    "homepage": "${repo}",
+    "sources": "${repo}",
+    "issues": "${repo}/issues"
+  },
+  "license": "${license}",
+  "icon": "icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.pieking1215.dripsounds.DripSoundsFabric"
+    ],
+    "modmenu": [
+      "me.pieking1215.dripsounds.DripSoundsModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "${id}.mixins.json"
+  ],
+  "//accessWidener": "${id}.ct",
+  "depends": {
+    "fabricloader": ">=${loader}",
+    "minecraft": ">=${mc_min}",
+    "${cloth_id}": ">=${cloth_min}"
+  }
+}
