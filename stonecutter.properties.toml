@@ -98,7 +98,7 @@ mod.neoforge_min = "21.0.143" # during beta versions there was a breaking change
 # ======== 1.20.5/6 ========
 
 ["1.20.6"]
-deps.mc = "1.21.6"
+deps.mc = "1.20.6"
 mod.mc_min = "1.20.5"
 
 deps.cloth = "14.0.139"
