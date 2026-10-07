@@ -21,7 +21,7 @@ public class DripSoundsNeoForge {
     }
 
     private void imProcess(InterModProcessEvent evt) {
-        if (/^? if >= 1.21.9 {^//^FMLEnvironment.getDist()^//^?} else {^/FMLEnvironment.dist/^?}^/ == Dist.CLIENT) {
+        if (/^? if >= 1.21.9 {^/FMLEnvironment.getDist()/^?} else {^//^FMLEnvironment.dist^//^?}^/ == Dist.CLIENT) {
             DripSounds.finishInit();
         }
     }
