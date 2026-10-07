@@ -55,13 +55,13 @@ neoForge {
 }
 
 java {
-    withSourcesJar()
+//    withSourcesJar()
     targetCompatibility = requiredJava
     sourceCompatibility = requiredJava
 
-//    toolchain {
-//        languageVersion = JavaLanguageVersion.of(requiredJava.majorVersion)
-//    }
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(requiredJava.majorVersion)
+    }
 }
 
 tasks {
@@ -109,8 +109,9 @@ tasks {
         description = "Builds mod jars and copies results to `build/libs/{mod version}/`"
 
         inputs.property("version", project.property("mod.version"))
-        from(jar.flatMap { it.archiveFile }, named<Jar>("sourcesJar").flatMap { it.archiveFile })
+        from(jar.flatMap { it.archiveFile }/*, named<Jar>("sourcesJar").flatMap { it.archiveFile }*/)
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
+        rename(".+", "${project.property("mod.name")}-${project.property("mod.version")}+${project.name.replace('f', 'F').replace('n', 'N')}.jar")
     }
 
     if (stonecutter.current.isActive) {

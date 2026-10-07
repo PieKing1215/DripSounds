@@ -75,7 +75,7 @@ loom {
 }
 
 java {
-    withSourcesJar()
+//    withSourcesJar()
     targetCompatibility = requiredJava
     sourceCompatibility = requiredJava
 
@@ -127,8 +127,9 @@ tasks {
 
         inputs.property("version", project.property("mod.version"))
         // loomx.mod(Sources)Jar returns the jar task for the applied loom variant
-        from(loomx.modJar.flatMap { it.archiveFile }, loomx.modSourcesJar.flatMap { it.archiveFile })
+        from(loomx.modJar.flatMap { it.archiveFile }/*, loomx.modSourcesJar.flatMap { it.archiveFile }*/)
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
+        rename(".+", "${project.property("mod.name")}-${project.property("mod.version")}+${project.name.replace('f', 'F').replace('n', 'N')}.jar")
     }
 
     if (stonecutter.current.isActive) {

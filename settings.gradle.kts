@@ -18,7 +18,7 @@ plugins {
 
     // Sometimes it is needed to make Gradle run at all, so it doesn't hurt to have
     // (https://github.com/gradle/foojay-toolchains)
-//    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 stonecutter {
