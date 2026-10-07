@@ -31,7 +31,8 @@ jobs:
 
       - name: Prep files
         run: |
-          for f in ./build/libs/**/*.jar; do mv "$f" "$(echo "$f" | sed -E 's/(.+)-.+\+(.+)-(.+)/\1-${{ steps.short-sha.outputs.sha }}+\2-\3/')"; done
+          for f in ./build/libs/**/*.jar; do mv "$f" "$(echo "$f" | sed -E 's/(.+\/).+\/(.+)-.+\+(.+)-(.+)/\1\2-${{ steps.short-sha.outputs.sha }}+\3-\4/')"; done
+          find ./build/libs/ -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
