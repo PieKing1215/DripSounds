@@ -101,13 +101,13 @@ subprojects {
         plugin("me.modmuss50.mod-publish-plugin")
     }
 
-    val mc = project.name.split('-')[0]
-    val loader = project.name.split('-')[1]
+    val (mc, loader) = project.name.split('-', limit = 2)
 
     ext.set("jarName", "${project.property("mod.name")}-${project.property("mod.version")}+${project.name.replace('f', 'F').replace('n', 'N')}.jar")
 
     publishMods {
         file = rootProject.file("build/libs/${project.property("mod.version")}/${property("jarName")}")
+        modLoaders.add(loader)
 
         changelog = rootProject.publishMods.changelog
         type = rootProject.publishMods.type
