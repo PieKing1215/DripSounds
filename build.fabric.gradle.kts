@@ -121,6 +121,8 @@ tasks {
         from("../../COPYING.LESSER") { rename { "$it-$name" } }
     }
 
+    val jarName = extra["jarName"] as String
+
     register<Copy>("buildAndCollect") {
         group = "build"
         description = "Builds mod jars and copies results to `build/libs/{mod version}/`"
@@ -129,7 +131,7 @@ tasks {
         // loomx.mod(Sources)Jar returns the jar task for the applied loom variant
         from(loomx.modJar.flatMap { it.archiveFile }/*, loomx.modSourcesJar.flatMap { it.archiveFile }*/)
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
-        rename(".+", "${project.property("mod.name")}-${project.property("mod.version")}+${project.name.replace('f', 'F').replace('n', 'N')}.jar")
+        rename(".+", jarName)
     }
 
     if (stonecutter.current.isActive) {

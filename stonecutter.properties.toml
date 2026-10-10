@@ -10,11 +10,16 @@ mod.license = "LGPL-3.0-only"
 deps.fabric_loader = "0.19.5"
 loomx.loom_version = "1.18-SNAPSHOT"
 
+# Publishing
+modrinth_project = "T8MMXTpr"
+curseforge_project = "448311"
+
 # ======== 26.3 ========
 
 ["26.3"]
 deps.mc = "26.3"
 mod.mc_min = "26.3"
+mod.display_mc_version = "26.3"
 
 deps.cloth = "26.3.159"
 mod.cloth_min = "26.3"
@@ -32,6 +37,7 @@ mod.neoforge_min = "26.3"
 ["26.2"]
 deps.mc = "26.2"
 mod.mc_min = "26.2"
+mod.display_mc_version = "26.2"
 
 deps.cloth = "26.2.155"
 mod.cloth_min = "26.2"
@@ -49,6 +55,7 @@ mod.neoforge_min = "26.2"
 ["26.1"]
 deps.mc = "26.1.2"
 mod.mc_min = "26.1"
+mod.display_mc_version = "26.1"
 
 deps.cloth = "26.1.154"
 mod.cloth_min = "26.1"
@@ -66,6 +73,7 @@ mod.neoforge_min = "26.1"
 ["1.21.11"]
 deps.mc = "1.21.11"
 mod.mc_min = "1.21.9"
+mod.display_mc_version = "1.21.9/10/11"
 
 deps.cloth = "21.11.153"
 mod.cloth_min = "20"
@@ -83,6 +91,7 @@ mod.neoforge_min = "21.9"
 ["1.21.8"]
 deps.mc = "1.21.8"
 mod.mc_min = "1.21"
+mod.display_mc_version = "1.21.0-8"
 
 deps.cloth = "19.0.147"
 mod.cloth_min = "15"
@@ -100,6 +109,7 @@ mod.neoforge_min = "21.0.143" # during beta versions there was a breaking change
 ["1.20.6"]
 deps.mc = "1.20.6"
 mod.mc_min = "1.20.5"
+mod.display_mc_version = "1.20.5/6"
 
 deps.cloth = "14.0.139"
 mod.cloth_min = "14"
@@ -116,7 +126,8 @@ mod.neoforge_min = "20.5"
 
 ["1.20.4"]
 deps.mc = "1.20.4"
-mod.mc_min = "1.23"
+mod.mc_min = "1.20.3"
+mod.display_mc_version = "1.20.3-4"
 
 deps.cloth = "13.0.138"
 mod.cloth_min = "13"
@@ -134,6 +145,7 @@ mod.neoforge_min = "20.3"
 ["1.20.1"]
 deps.mc = "1.20.1"
 mod.mc_min = "1.20"
+mod.display_mc_version = "1.20.1"
 
 deps.cloth = "11.1.136"
 mod.cloth_min = "11"
@@ -151,6 +163,7 @@ mod.forge_min = "46"
 ["1.19"]
 deps.mc = "1.19.4"
 mod.mc_min = "1.19"
+mod.display_mc_version = "1.19"
 
 deps.cloth = "10.1.135"
 mod.cloth_min = "8"
@@ -168,6 +181,7 @@ mod.forge_min = "41"
 ["1.18"]
 deps.mc = "1.18.2"
 mod.mc_min = "1.18"
+mod.display_mc_version = "1.18"
 
 deps.cloth = "6.5.102"
 mod.cloth_min = "6"
