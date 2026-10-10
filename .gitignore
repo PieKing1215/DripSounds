@@ -1,24 +1,45 @@
-build/
-*.ipr
-run/
-*.iws
-out/
-*.iml
-.gradle/
-output/
-bin/
-libs/
-*.log
+# gradle
 
-.classpath
-.project
-.idea/
+.gradle/
+build/
+out/
 classes/
-.metadata
-.vscode
-.settings
+
+# eclipse
+
 *.launch
 
-publish_all.sh
-publish_curseforge_version.sh
-publish_modrinth_version.sh
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+
+# stonecutter
+
+buildSrc/

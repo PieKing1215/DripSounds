@@ -1,0 +1,39 @@
+license = "${license}"
+
+modLoader="javafml"
+loaderVersion="[${forge_min},)"
+
+[[mods]]
+modId = "${id}"
+displayName = "${name}"
+version = "${version}"
+authors = "${authors}"
+description = "${description}"
+
+logoFile = "icon.png"
+displayURL = "${repo}"
+issueTrackerURL = "${repo}/issues"
+
+[[mixins]]
+config = "${id}.mixins.json"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${mc_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${id}]]
+modId = "forge"
+mandatory = true
+versionRange = "[${forge_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${id}]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[${cloth_min},)"
+ordering = "NONE"
+side = "CLIENT"

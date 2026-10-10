@@ -1,0 +1,40 @@
+license = "${license}"
+
+modLoader="javafml"
+loaderVersion="[1,)"
+
+[[mods]]
+modId = "${id}"
+displayName = "${name}"
+version = "${version}"
+authors = "${authors}"
+description = "${description}"
+
+iconFile = "icon.png"
+logoFile = "icon.png" # ignored in 26.3+
+displayURL = "${repo}"
+issueTrackerURL = "${repo}/issues"
+
+[[mixins]]
+config = "${id}.mixins.json"
+
+[[dependencies.${id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_min},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${id}]]
+modId = "cloth_config"
+type = "required"
+versionRange = "[${cloth_min},)"
+ordering = "NONE"
+side = "CLIENT"
