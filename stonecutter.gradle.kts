@@ -101,7 +101,8 @@ subprojects {
         plugin("me.modmuss50.mod-publish-plugin")
     }
 
-    val (mc, loader) = project.name.split('-', limit = 2)
+    val (_, loader) = project.name.split('-', limit = 2)
+    val mc = project.property("deps.mc") as String
 
     ext.set("jarName", "${project.property("mod.name")}-${project.property("mod.version")}+${project.name.replace('f', 'F').replace('n', 'N')}.jar")
 
