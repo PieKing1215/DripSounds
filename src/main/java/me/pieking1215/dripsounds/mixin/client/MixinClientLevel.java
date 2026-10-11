@@ -6,7 +6,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(ClientLevel.class)
+@Mixin(
+        value = ClientLevel.class,
+        priority = 950 // fix for conflict with Effective
+)
 public class MixinClientLevel {
     @ModifyConstant(method = "doAnimateTick", constant = @Constant(intValue = 10))
     private int modifyDripChance(int original){

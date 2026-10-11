@@ -1,7 +1,7 @@
 mod.id = "waterdripsound"
 mod.name = "Drip Sounds"
 mod.group = "me.pieking1215.dripsounds"
-mod.version = "0.6.0"
+mod.version = "0.6.1"
 mod.description = "Makes drip particles play a sound (and other related changes)."
 mod.authors = "PieKing1215"
 mod.repo = "https://github.com/PieKing1215/DripSounds"

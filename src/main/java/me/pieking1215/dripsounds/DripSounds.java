@@ -25,7 +25,7 @@ import java.io.File;
 public class DripSounds {
     public static final String MOD_ID = /*$ modid*/ "waterdripsound";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final String VERSION = /*$ mod_version*/ "0.6.0";
+    public static final String VERSION = /*$ mod_version*/ "0.6.1";
     public static final String MINECRAFT = /*$ minecraft*/ "26.3";
 
     public static void finishInit(){
