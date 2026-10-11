@@ -7,7 +7,10 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 //? if >= 1.21.9 {
 
-@Mixin(net.minecraft.client.multiplayer.ClientLevel.class)
+@Mixin(
+        value = net.minecraft.client.multiplayer.ClientLevel.class,
+        priority = 950 // fix for conflict with ViaFabricPlus
+)
 public class MixinLevelRenderer {
     @ModifyConstant(
             method = "doAddParticle",
@@ -21,7 +24,10 @@ public class MixinLevelRenderer {
 
 //?} else {
 
-/*@Mixin(net.minecraft.client.renderer.LevelRenderer.class)
+/*@Mixin(
+        value = net.minecraft.client.renderer.LevelRenderer.class,
+        priority = 950 // fix for conflict with ViaFabricPlus
+)
 public class MixinLevelRenderer {
     @ModifyConstant(
         method = "Lnet/minecraft/client/renderer/LevelRenderer;addParticleInternal(Lnet/minecraft/core/particles/ParticleOptions;ZZDDDDDD)Lnet/minecraft/client/particle/Particle;",
