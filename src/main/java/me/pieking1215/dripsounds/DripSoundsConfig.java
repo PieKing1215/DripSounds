@@ -98,7 +98,7 @@ public class DripSoundsConfig {
             if (configDir != null) {
                 // main config
 
-                File configFile = new File(configDir, "waterdripsound.mixins.json");
+                File configFile = new File(configDir, "waterdripsound.json");
 
                 if (!configFile.exists()) {
                     //noinspection ResultOfMethodCallIgnored
@@ -122,7 +122,7 @@ public class DripSoundsConfig {
             if (configDir != null) {
                 // main config
 
-                File configFile = new File(configDir, "waterdripsound.mixins.json");
+                File configFile = new File(configDir, "waterdripsound.json");
 
                 if (!configFile.exists()) {
                     //noinspection ResultOfMethodCallIgnored
