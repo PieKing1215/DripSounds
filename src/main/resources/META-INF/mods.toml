@@ -14,6 +14,8 @@ logoFile = "icon.png"
 displayURL = "${repo}"
 issueTrackerURL = "${repo}/issues"
 
+displayTest="IGNORE_ALL_VERSION"
+
 [[mixins]]
 config = "${id}.mixins.json"
 

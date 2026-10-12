@@ -40,12 +40,6 @@ mixin {
     config("${property("mod.id") as String}.mixins.json")
 }
 
-//jar {
-//    manifest.attributes([
-//        "MixinConfigs": "${property("mod.id") as String}.mixins.json"
-//    ])
-//}
-
 legacyForge {
     version = property("deps.forge") as String
 
@@ -79,6 +73,12 @@ java {
 }
 
 tasks {
+    jar {
+        manifest.attributes(
+            mapOf("MixinConfigs" to "${sc.properties["mod.id"] as String}.mixins.json")
+        )
+    }
+
     processResources {
         fun MutableMap<String, String>.register(key: String, value: String) {
             inputs.property(key, value)
@@ -125,7 +125,7 @@ tasks {
         description = "Builds mod jars and copies results to `build/libs/{mod version}/`"
 
         inputs.property("version", project.property("mod.version"))
-        from(jar.flatMap { it.archiveFile }/*, named<Jar>("sourcesJar").flatMap { it.archiveFile }*/)
+        from(named<Jar>("reobfJar").flatMap { it.archiveFile }/*, named<Jar>("sourcesJar").flatMap { it.archiveFile }*/)
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         rename(".+", jarName)
     }

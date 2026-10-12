@@ -1,5 +1,6 @@
 {
   "required": true,
+  "minVersion": "0.8",
   "package": "me.pieking1215.dripsounds.mixin",
   "compatibilityLevel": "${java}",
   "client": [
@@ -13,5 +14,6 @@
   "mixins": [],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "waterdripsound.mixins.refmap.json"
 }
