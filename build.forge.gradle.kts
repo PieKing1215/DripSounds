@@ -93,7 +93,7 @@ tasks {
             register("authors", sc.properties["mod.authors"])
             register("license", sc.properties["mod.license"])
             register("repo", sc.properties["mod.repo"])
-            register("mc_min", sc.properties["mod.mc_min"])
+            register("mc_min", (sc.properties["mod.mc_min"] as String).replace("snapshot-", "alpha."))
             register("forge_min", sc.properties["mod.forge_min"])
             register("cloth_min", sc.properties["mod.cloth_min"])
             register("cloth_id", if (sc.current.parsed >= "1.18") "cloth-config" else "cloth-config2")

@@ -37,6 +37,10 @@ stonecutter parameters {
         string(current.parsed >= "26.1") {
             replace("classTweaker v2 named", "classTweaker v2 official")
         }
+
+        string(current.parsed >= "26.4") {
+            replace("Mth.clamp", "Math.clamp")
+        }
     }
 }
 
